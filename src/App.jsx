@@ -3,6 +3,7 @@ import React from 'react';
 import './helpers/events';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { ChakraProvider } from '@chakra-ui/react';
 import {
   Home,
   Page
@@ -23,11 +24,13 @@ const renderPageElement = (el) => {
   const props = Object.assign({}, el.dataset);
 
   const App = () => (
-    <div className="app-wrapper">
-      <Header />
-      <Page {...props} />
-      <Footer />
-    </div>
+    <ChakraProvider>
+      <div className="app-wrapper">
+        <Header />
+        <Page {...props} />
+        <Footer />
+      </div>
+    </ChakraProvider>
   );
 
   ReactDOM.render(<App {...props} />, el);
