@@ -1,36 +1,36 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
+const { createElement, render } = wp.element;
 import './helpers/events';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import {
-  Home,
-  Page
+  Homepage,
+  TestPage
 } from './pages';
 
 const PAGES = {
-  Home,
-  Page,
+  Homepage,
+  TestPage,
 };
 
 const renderPageElement = (el) => {
   const Page = PAGES[el.id];
 
   if (!Page) {
+    console.log('page not found');
+    console.log(el.id);
+    console.log(PAGES);
     return;
   }
 
   const props = Object.assign({}, el.dataset);
 
   const App = () => (
-    <ChakraProvider>
-      <div className="app-wrapper">
-        <Header />
+    <ThemeProvider>
+        <CSSReset />
         <Page {...props} />
-        <Footer />
-      </div>
-    </ChakraProvider>
+    </ThemeProvider>
   );
 
   ReactDOM.render(<App {...props} />, el);

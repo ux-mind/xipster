@@ -1,0 +1,21 @@
+import React from 'react';
+const { createElement, render } = wp.element;
+import { Flex, Text } from '@chakra-ui/core';
+
+const TestPage = () => (
+  <Flex
+    width='100vw'
+    height='100vh'
+    align='center'
+    justify='center'
+  >
+    <Text
+      fontSize='24px'
+      lineHeight='30px'
+    >
+      Test Page
+    </Text>
+  </Flex>
+);
+
+export default TestPage;
