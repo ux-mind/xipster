@@ -1,8 +1,6 @@
 import React from 'react';
 const { createElement, render } = wp.element;
 import './helpers/events';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 import {
   Homepage,
